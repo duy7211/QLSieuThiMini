@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.qlsieuthimini.Sanpham.allSanPham;
+
 public class MainActivity extends AppCompatActivity {
     EditText edtUsn, edtPw;
     Button btnLogin, btnRegt;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = edtPw.getText().toString();
                 boolean isExist = db.checkUser(username,password);
                 if(isExist){
-                    Intent i = new Intent(MainActivity.this, IUDActivity.class);
+                    Intent i = new Intent(MainActivity.this, allSanPham.class);
                     i.putExtra("username", username);
                     startActivity(i);
                 }else {

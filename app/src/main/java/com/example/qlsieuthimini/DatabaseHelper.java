@@ -20,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "(ID INTERGER PRIMARY KEY AUTOINCREMENT, "+
             "TENSP VARCHAR(100), "+
             "SL VARCHAR(100), "+
+            "MOTA VARCHAR(100), "+
             "HINH BLOB)";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);

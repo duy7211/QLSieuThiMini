@@ -3,13 +3,15 @@ package com.example.qlsieuthimini.Sanpham;
 public class clsSanpham {
     private int ID;
     private String Name;
-    private int Amount;
+    private String Amount;
+    private String Describe;
     private byte[] Img;
 
-    public clsSanpham(int ID, String name, int amount, byte[] img) {
+    public clsSanpham(int ID, String name, String amount, String describe, byte[] img) {
         this.ID = ID;
         Name = name;
         Amount = amount;
+        Describe = describe;
         Img = img;
     }
 
@@ -29,11 +31,11 @@ public class clsSanpham {
         Name = name;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return Amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         Amount = amount;
     }
 

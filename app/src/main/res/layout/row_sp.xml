@@ -37,4 +37,14 @@
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/imgSP"
         app:layout_constraintTop_toBottomOf="@+id/tvTenSP" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="4dp"
+        android:text="Sửa"
+        app:layout_constraintStart_toEndOf="@+id/imgSP"
+        app:layout_constraintTop_toBottomOf="@+id/tvSL" />
 </android.support.constraint.ConstraintLayout>
