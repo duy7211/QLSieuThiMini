@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IUDActivity">
+
+    <ImageView
+        android:id="@+id/imgSP"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <Button
+        android:id="@+id/btnImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="81dp"
+        android:text="Chọn ảnh"
+        app:layout_constraintStart_toEndOf="@+id/imgSP"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtTenSP"
+        android:layout_width="306dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Tên sản phẩm"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgSP" />
+
+    <EditText
+        android:id="@+id/edtSoluong"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:hint="Số lượng"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTenSP" />
+
+    <EditText
+        android:id="@+id/edtMota"
+        android:layout_width="301dp"
+        android:layout_height="181dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Mô tả"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSoluong" />
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="56dp"
+        android:text="Trở về"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtMota" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="57dp"
+        android:text="Lưu"
+        app:layout_constraintStart_toEndOf="@+id/btnExit"
+        app:layout_constraintTop_toBottomOf="@+id/edtMota" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="57dp"
+        android:text="Xóa"
+        app:layout_constraintStart_toEndOf="@+id/btnSave"
+        app:layout_constraintTop_toBottomOf="@+id/edtMota" />
+
+</android.support.constraint.ConstraintLayout>
