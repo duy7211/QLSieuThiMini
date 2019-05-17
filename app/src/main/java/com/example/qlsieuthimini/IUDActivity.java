@@ -2,6 +2,7 @@ package com.example.qlsieuthimini;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.drm.DrmStore;
 import android.graphics.Bitmap;
@@ -53,6 +54,20 @@ public class IUDActivity extends AppCompatActivity {
                 break;
             case "update":
                 btnDelete.setEnabled(true);
+                ID = i.getIntExtra("ID",-1);
+                if(ID == -1){
+                    finish();
+                } else {
+                    Cursor cursor = db.rawQuery("SELECT * FROM sanpham WHERE ID=?", new String[]{ID+""});
+                    cursor.moveToFirst();
+                    edtTenSP.setText(cursor.getString(1));
+                    edtSL.setText(cursor.getString(2));
+                    edtMota.setText(cursor.getString(3));
+                    bitmap = BitmapUtility.getImage(cursor.getBlob(4));
+                    imgSP.setImageBitmap(bitmap);
+
+                }
+                break;
         }
     }
 
@@ -109,8 +124,14 @@ public class IUDActivity extends AppCompatActivity {
                 }
                 break;
             case "update":
-                Toast.makeText(this,String.valueOf(ID), Toast.LENGTH_SHORT).show();
-
+                int u = db.update("sanpham",values,"ID="+ID,null);
+                if(u>0){
+                    msg = "Cập nhật thành công";
+                    finish();
+                } else {
+                    msg = "Cập nhật thất bại";
+                }
+                break;
         }
         if (!msg.isEmpty()){
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
@@ -154,7 +175,6 @@ public class IUDActivity extends AppCompatActivity {
 
     private void init() {
         btnExit = findViewById(R.id.btnExit);
-        btnDelete = findViewById(R.id.btnDelete);
         btnSave = findViewById(R.id.btnSave);
         btnimg = findViewById(R.id.btnImg);
         edtTenSP =findViewById(R.id.edtTenSP);

@@ -52,7 +52,7 @@
 
     <EditText
         android:id="@+id/edtMota"
-        android:layout_width="291dp"
+        android:layout_width="298dp"
         android:layout_height="135dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="30dp"
@@ -76,20 +76,10 @@
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="56dp"
         android:text="Lưu"
         app:layout_constraintStart_toEndOf="@+id/btnExit"
-        app:layout_constraintTop_toBottomOf="@+id/edtMota" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="57dp"
-        android:text="Xóa"
-        app:layout_constraintStart_toEndOf="@+id/btnSave"
         app:layout_constraintTop_toBottomOf="@+id/edtMota" />
 
 </android.support.constraint.ConstraintLayout>
