@@ -31,11 +31,13 @@ public class IUDActivity extends AppCompatActivity {
     String Action = null;
     int RQC = 111;
     Bitmap bitmap;
+    int ID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iud);
-       databaseHelper = new DatabaseHelper(this);
+        databaseHelper = new DatabaseHelper(this);
+        db = databaseHelper.getWritableDatabase();
         init();
         getReqAndData();
         act();
@@ -44,6 +46,7 @@ public class IUDActivity extends AppCompatActivity {
     private void getReqAndData() {
         Intent i = this.getIntent();
         Action = i.getStringExtra("action");
+        ID = i.getIntExtra("ID",-1);
         switch (Action) {
             case "add":
                 btnDelete.setEnabled(false);
@@ -105,6 +108,9 @@ public class IUDActivity extends AppCompatActivity {
                     }
                 }
                 break;
+            case "update":
+                Toast.makeText(this,String.valueOf(ID), Toast.LENGTH_SHORT).show();
+
         }
         if (!msg.isEmpty()){
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
@@ -149,7 +155,7 @@ public class IUDActivity extends AppCompatActivity {
     private void init() {
         btnExit = findViewById(R.id.btnExit);
         btnDelete = findViewById(R.id.btnDelete);
-        btnSave = findViewById(R.id.btnAdd);
+        btnSave = findViewById(R.id.btnSave);
         btnimg = findViewById(R.id.btnImg);
         edtTenSP =findViewById(R.id.edtTenSP);
         edtSL = findViewById(R.id.edtSoluong);

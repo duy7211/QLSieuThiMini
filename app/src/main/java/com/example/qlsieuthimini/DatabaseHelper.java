@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "USER VARCHAR(100), "+
             "PASSWORD VARCHAR(100))";
     public static final String sanpham = "CREATE TABLE IF NOT EXISTS "+TABLE_SP+" " +
-            "(ID INTERGER PRIMARY KEY AUTOINCREMENT, "+
+            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
             "TENSP VARCHAR(100), "+
             "SL VARCHAR(100), "+
             "MOTA VARCHAR(100), "+

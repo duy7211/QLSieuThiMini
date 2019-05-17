@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,10 +47,10 @@ public class adapterSP extends BaseAdapter {
         TextView tvTenSP = convertView.findViewById(R.id.tvTenSP);
         TextView tvSL = convertView.findViewById(R.id.tvSL);
         ImageView imgSP = convertView.findViewById(R.id.imgSP);
-
+        //Button btnEdit = convertView.findViewById(R.id.btnEdit);
         clsSanpham sp = sanphamList.get(position);
         tvTenSP.setText(sp.getName());
-        tvSL.setText(sp.getAmount());
+        tvSL.setText("Số lượng: "+sp.getAmount());
         imgSP.setImageBitmap(BitmapUtility.getImage(sp.getImg()));
         return convertView;
     }

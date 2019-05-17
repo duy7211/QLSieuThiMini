@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -14,13 +14,12 @@
             android:label="Tất cả sản phẩm"
             android:name=".Sanpham.allSanPham"
             android:screenOrientation="portrait" />
-        <activity android:name=".test" />
         <activity
             android:label="Đăng ký"
             android:name=".Register"
             android:screenOrientation="portrait" />
         <activity
-            android:label="Đăng nhập"
+            android:label="Quản lý siêu thị mini"
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>

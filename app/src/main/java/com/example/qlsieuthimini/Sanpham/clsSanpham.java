@@ -9,10 +9,10 @@ public class clsSanpham {
 
     public clsSanpham(int ID, String name, String amount, String describe, byte[] img) {
         this.ID = ID;
-        Name = name;
-        Amount = amount;
-        Describe = describe;
-        Img = img;
+        this.Name = name;
+        this.Amount = amount;
+        this.Describe = describe;
+        this.Img = img;
     }
 
     public int getID() {
@@ -28,7 +28,7 @@ public class clsSanpham {
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 
     public String getAmount() {
@@ -36,7 +36,15 @@ public class clsSanpham {
     }
 
     public void setAmount(String amount) {
-        Amount = amount;
+        this.Amount = amount;
+    }
+
+    public String getDescribe() {
+        return Describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.Describe = describe;
     }
 
     public byte[] getImg() {
@@ -44,6 +52,6 @@ public class clsSanpham {
     }
 
     public void setImg(byte[] img) {
-        Img = img;
+        this.Img = img;
     }
 }

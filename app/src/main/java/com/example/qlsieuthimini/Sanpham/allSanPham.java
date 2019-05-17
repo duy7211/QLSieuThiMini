@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.qlsieuthimini.DatabaseHelper;
 import com.example.qlsieuthimini.IUDActivity;
@@ -28,9 +30,15 @@ public class allSanPham extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_san_pham);
         databaseHelper = new DatabaseHelper(this);
+        db = databaseHelper.getReadableDatabase();
         init();
         act();
+    }
+
+    @Override
+    protected void onStart() {
         showData();
+        super.onStart();
     }
 
     private void showData() {
@@ -49,6 +57,7 @@ public class allSanPham extends AppCompatActivity {
         }
         adapterSP = new adapterSP(this, R.layout.row_sp, sanphamList);
         lvSP.setAdapter(adapterSP);
+
     }
 
     private void act() {
@@ -58,6 +67,18 @@ public class allSanPham extends AppCompatActivity {
                 Intent i = new Intent(allSanPham.this, IUDActivity.class);
                 i.putExtra("action","add");
                 startActivity(i);
+            }
+        });
+
+        lvSP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = (String) lvSP.getItemAtPosition(position);
+                Toast.makeText(allSanPham.this, String.valueOf(item), Toast.LENGTH_SHORT).show();
+                //Intent i = new Intent(allSanPham.this, IUDActivity.class);
+                //i.putExtra("ID",item);
+                //i.putExtra("Action","update");
+                //startActivity(i);
             }
         });
     }
