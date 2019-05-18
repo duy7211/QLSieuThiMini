@@ -9,18 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IUDActivity"></activity>
         <activity
-            android:label="Tất cả sản phẩm"
+            android:name=".user.user"
+            android:label="Nhân viên"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".menu.menu"
+            android:label="Menu"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".IUDActivity"
+            android:label="Thêm Sửa sản phẩm"
+            android:screenOrientation="portrait"
+            />
+        <activity
             android:name=".Sanpham.allSanPham"
+            android:label="Tất cả sản phẩm"
             android:screenOrientation="portrait" />
         <activity
-            android:label="Đăng ký"
             android:name=".Register"
+            android:label="Đăng ký"
             android:screenOrientation="portrait" />
         <activity
-            android:label="Quản lý siêu thị mini"
             android:name=".MainActivity"
+            android:label="Quản lý siêu thị mini"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

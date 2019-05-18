@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.qlsieuthimini.Sanpham.allSanPham;
+import com.example.qlsieuthimini.menu.menu;
 
 public class MainActivity extends AppCompatActivity {
     EditText edtUsn, edtPw;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = edtPw.getText().toString();
                 boolean isExist = db.checkUser(username,password);
                 if(isExist){
-                    Intent i = new Intent(MainActivity.this, allSanPham.class);
+                    Intent i = new Intent(MainActivity.this, menu.class);
                     i.putExtra("username", username);
                     startActivity(i);
                 }else {

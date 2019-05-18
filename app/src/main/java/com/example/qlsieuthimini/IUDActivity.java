@@ -49,11 +49,7 @@ public class IUDActivity extends AppCompatActivity {
         Action = i.getStringExtra("action");
         ID = i.getIntExtra("ID",-1);
         switch (Action) {
-            case "add":
-                btnDelete.setEnabled(false);
-                break;
             case "update":
-                btnDelete.setEnabled(true);
                 ID = i.getIntExtra("ID",-1);
                 if(ID == -1){
                     finish();
