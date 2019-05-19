@@ -51,13 +51,14 @@ public class adapterSP extends BaseAdapter {
         TextView tvTenSP = convertView.findViewById(R.id.tvTenSP);
         TextView tvSL = convertView.findViewById(R.id.tvSL);
         ImageView imgSP = convertView.findViewById(R.id.imgSP);
+        TextView tvgia = convertView.findViewById(R.id.tvgia);
         //ListView lv = convertView.findViewById(R.id.lvSP);
         //Button btnEdit = convertView.findViewById(R.id.btnEdit);
         final clsSanpham sp = sanphamList.get(position);
         tvTenSP.setText(sp.getName());
         tvSL.setText("Số lượng: "+sp.getAmount());
         imgSP.setImageBitmap(BitmapUtility.getImage(sp.getImg()));
-
+        tvgia.setText("Giá: "+sp.getPrice()+" VNĐ");
 
 
         return convertView;

@@ -19,8 +19,6 @@ import com.example.qlsieuthimini.R;
 
 import java.util.ArrayList;
 
-import static android.os.Build.ID;
-
 public class allSanPham extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     SQLiteDatabase db;
@@ -56,7 +54,8 @@ public class allSanPham extends AppCompatActivity {
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getBlob(4)
+                        cursor.getBlob(4),
+                        cursor.getString(5)
                 ));
             }
         }

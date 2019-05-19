@@ -31,8 +31,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="83dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="12dp"
         android:text="Nhân viên"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -47,4 +47,47 @@
         app:layout_constraintStart_toEndOf="@+id/imgsp"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user2" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="10dp"
+        android:text="Đăng Xuất"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogout" />
+
+    <ImageView
+        android:id="@+id/imgLogout"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imginfo"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/logout" />
+
+    <ImageView
+        android:id="@+id/imginfo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/infoicon" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Thông tin tài khoản"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imginfo" />
+
 </android.support.constraint.ConstraintLayout>

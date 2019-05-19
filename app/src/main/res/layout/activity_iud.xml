@@ -28,10 +28,10 @@
 
     <EditText
         android:id="@+id/edtTenSP"
-        android:layout_width="306dp"
+        android:layout_width="336dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="91dp"
         android:ems="10"
         android:hint="Tên sản phẩm"
         android:inputType="textPersonName"
@@ -40,10 +40,10 @@
 
     <EditText
         android:id="@+id/edtSoluong"
-        android:layout_width="304dp"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Số lượng"
         android:inputType="number"
@@ -52,22 +52,22 @@
 
     <EditText
         android:id="@+id/edtMota"
-        android:layout_width="298dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="341dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Mô tả"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSoluong" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
 
     <Button
         android:id="@+id/btnExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="29dp"
         android:text="Trở về"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtMota" />
@@ -76,10 +76,22 @@
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="28dp"
         android:text="Lưu"
         app:layout_constraintStart_toEndOf="@+id/btnExit"
         app:layout_constraintTop_toBottomOf="@+id/edtMota" />
+
+    <EditText
+        android:id="@+id/edtPrice"
+        android:layout_width="339dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="Giá"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSoluong" />
 
 </android.support.constraint.ConstraintLayout>

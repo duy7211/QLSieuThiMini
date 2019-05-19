@@ -4,35 +4,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/stellicon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".user.info"></activity>
+        <activity
+            android:name=".user.IU_user"
+            android:label="Cập nhật và Thêm nhân viên"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".user.user"
             android:label="Nhân viên"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".menu.menu"
-            android:label="Menu"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".IUDActivity"
-            android:label="Thêm Sửa sản phẩm"
-            android:screenOrientation="portrait"
-            />
-        <activity
-            android:name=".Sanpham.allSanPham"
-            android:label="Tất cả sản phẩm"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Register"
-            android:label="Đăng ký"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MainActivity"
             android:label="Quản lý siêu thị mini"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -41,6 +28,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".IUDActivity"
+            android:label="Thêm Sửa sản phẩm"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sanpham.allSanPham"
+            android:label="Tất cả sản phẩm"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Đăng nhập"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

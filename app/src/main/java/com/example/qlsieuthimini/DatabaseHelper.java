@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "QlSieuthi";
@@ -15,13 +14,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String user = "CREATE TABLE IF NOT EXISTS "+TABLE_USER+" " +
             "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
             "USER VARCHAR(100), "+
-            "PASSWORD VARCHAR(100))";
+            "PASSWORD VARCHAR(100), " +
+            "HOTEN VARCHAR(100), " +
+            "QUE VARCHAR(100), " +
+            "NAMSINH DATE" +
+            ")";
     public static final String sanpham = "CREATE TABLE IF NOT EXISTS "+TABLE_SP+" " +
             "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
             "TENSP VARCHAR(100), "+
             "SL VARCHAR(100), "+
             "MOTA VARCHAR(100), "+
-            "HINH BLOB)";
+            "HINH BLOB," +
+            "GIA VARCHAR(100)" +
+            ")";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -39,11 +44,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addUser (String userName, String passWord){
+    public void addUser (String userName, String passWord,String Hoten,String Que,String NS){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("USER", userName);
         values.put("PASSWORD", passWord);
+        values.put("HOTEN",Hoten);
+        values.put("QUE",Que);
+        values.put("NAMSINH",NS);
         long r =  db.insert(TABLE_USER,null,values);
         db.close();
     }
@@ -71,5 +79,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return false;
         }
+    }
+
+   public int getIdUserByname(String username){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_USER+" WHERE USER=?",new String[]{username+""});
+        cursor.moveToFirst();
+        int ID = cursor.getInt(0);
+        cursor.close();
+        db.close();
+        return ID;
     }
 }

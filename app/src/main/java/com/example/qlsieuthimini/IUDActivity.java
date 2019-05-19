@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.drm.DrmStore;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.qlsieuthimini.Sanpham.BitmapUtility;
@@ -27,7 +25,7 @@ public class IUDActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     SQLiteDatabase db;
     Button btnExit, btnSave, btnDelete, btnimg;
-    EditText edtTenSP, edtSL, edtMota;
+    EditText edtTenSP, edtSL, edtMota,edtPrice;
     ImageView imgSP;
     String Action = null;
     int RQC = 111;
@@ -98,11 +96,13 @@ public class IUDActivity extends AppCompatActivity {
         String AMOUNT = edtSL.getText().toString();
         String DESCRIBE = edtMota.getText().toString();
         byte[] IMG = BitmapUtility.getBytes(bitmap);
+        String PRICE = edtPrice.getText().toString();
         ContentValues values = new ContentValues();
         values.put("TENSP",NAME);
         values.put("SL",AMOUNT);
         values.put("MOTA",DESCRIBE);
         values.put("HINH",IMG);
+        values.put("GIA",PRICE);
 
         switch (Action){
             case "add":
@@ -138,12 +138,17 @@ public class IUDActivity extends AppCompatActivity {
         String NAME = edtTenSP.getText().toString();
         String AMOUNT = edtSL.getText().toString();
         String Describe = edtMota.getText().toString();
+        String PRICE = edtPrice.getText().toString();
         if(NAME.isEmpty())
             return false;
         if(AMOUNT.isEmpty())
             return false;
         if(Describe.isEmpty())
             return false;
+        if(PRICE.isEmpty())
+            return false;
+        //if (imgSP.getDrawable() == null)
+          //  return false;
         return true;
     }
 
@@ -152,6 +157,7 @@ public class IUDActivity extends AppCompatActivity {
         edtSL.getText().clear();
         edtMota.getText().clear();
         imgSP.setImageBitmap(null);
+        edtPrice.getText().clear();
     }
 
     @Override
@@ -177,5 +183,6 @@ public class IUDActivity extends AppCompatActivity {
         edtSL = findViewById(R.id.edtSoluong);
         edtMota = findViewById(R.id.edtMota);
         imgSP = findViewById(R.id.imgSP);
+        edtPrice = findViewById(R.id.edtPrice);
     }
 }

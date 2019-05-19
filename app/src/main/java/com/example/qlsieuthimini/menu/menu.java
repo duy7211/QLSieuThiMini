@@ -8,29 +8,53 @@ import android.widget.ImageView;
 
 import com.example.qlsieuthimini.R;
 import com.example.qlsieuthimini.Sanpham.allSanPham;
+import com.example.qlsieuthimini.session.Session;
+import com.example.qlsieuthimini.user.IU_user;
+import com.example.qlsieuthimini.user.info;
 import com.example.qlsieuthimini.user.user;
 
 public class menu extends AppCompatActivity{
-    ImageView imgsp, imgnv;
+    ImageView imgsp, imgnv, imgLogout, imginfo;
+    Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        session = new Session(this);
+        session.checkLogin();
         init();
         act();
     }
 
     private void act() {
-        imgsp.setOnClickListener(new View.OnClickListener() {
+       imgsp.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent i = new Intent(menu.this,allSanPham.class);
+               startActivity(i);
+           }
+       });
+
+       imgnv.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+                Intent i = new Intent(menu.this,user.class);
+                startActivity(i);
+           }
+       });
+
+        imgLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(menu.this, allSanPham.class));
+                finish();
+                session.logout();
+
             }
         });
-        imgnv.setOnClickListener(new View.OnClickListener() {
+        imginfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(menu.this, user.class));
+                startActivity(new Intent(menu.this, info.class));
             }
         });
     }
@@ -38,5 +62,7 @@ public class menu extends AppCompatActivity{
     private void init() {
         imgsp = findViewById(R.id.imgsp);
         imgnv = findViewById(R.id.imguser);
+        imgLogout = findViewById(R.id.imgLogout);
+        imginfo = findViewById(R.id.imginfo);
     }
 }
