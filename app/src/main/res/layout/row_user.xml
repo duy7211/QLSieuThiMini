@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Tài khoảng"
+        android:text="Tài khoản"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -39,11 +39,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
 
     <TextView
-        android:id="@+id/tvQueofUser"
+        android:id="@+id/tvQue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="4dp"
         android:text="Quê"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/tvvHoten" />
@@ -53,9 +53,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="4dp"
         android:text="Năm Sinh"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/tvQueofUser" />
+        app:layout_constraintTop_toBottomOf="@+id/tvQue" />
 
 </android.support.constraint.ConstraintLayout>

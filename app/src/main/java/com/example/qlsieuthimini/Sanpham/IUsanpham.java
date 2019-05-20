@@ -1,4 +1,4 @@
-package com.example.qlsieuthimini;
+package com.example.qlsieuthimini.Sanpham;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -16,15 +16,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.qlsieuthimini.DatabaseHelper;
+import com.example.qlsieuthimini.R;
 import com.example.qlsieuthimini.Sanpham.BitmapUtility;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class IUDActivity extends AppCompatActivity {
+public class IUsanpham extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     SQLiteDatabase db;
-    Button btnExit, btnSave, btnDelete, btnimg;
+    Button btnExit, btnSave, btnimg;
     EditText edtTenSP, edtSL, edtMota,edtPrice;
     ImageView imgSP;
     String Action = null;
@@ -34,7 +36,7 @@ public class IUDActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iud);
+        setContentView(R.layout.activity_iusanpham);
         databaseHelper = new DatabaseHelper(this);
         db = databaseHelper.getWritableDatabase();
         init();
@@ -59,6 +61,7 @@ public class IUDActivity extends AppCompatActivity {
                     edtMota.setText(cursor.getString(3));
                     bitmap = BitmapUtility.getImage(cursor.getBlob(4));
                     imgSP.setImageBitmap(bitmap);
+                    edtPrice.setText(cursor.getString(5));
 
                 }
                 break;

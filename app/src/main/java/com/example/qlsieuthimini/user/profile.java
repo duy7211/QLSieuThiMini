@@ -15,7 +15,7 @@ import com.example.qlsieuthimini.session.Session;
 
 import java.util.HashMap;
 
-public class info extends AppCompatActivity {
+public class profile extends AppCompatActivity {
     TextView tvHoten,tvNS,tvQue;
     Button btnEditInfo;
     DatabaseHelper databaseHelper;
@@ -26,7 +26,7 @@ public class info extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.activity_profile);
         session = new Session(this);
         databaseHelper = new DatabaseHelper(this);
         db = databaseHelper.getReadableDatabase();
@@ -37,7 +37,7 @@ public class info extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        showUserInfo();
+        showUserProfile();
         super.onStart();
     }
 
@@ -45,7 +45,7 @@ public class info extends AppCompatActivity {
         btnEditInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(info.this,IU_user.class);
+                Intent i =new Intent(profile.this,IU_user.class);
                 i.putExtra("ID",Integer.valueOf(idUserLogin));
                 i.putExtra("action","update");
                 startActivity(i);
@@ -54,7 +54,7 @@ public class info extends AppCompatActivity {
 
     }
 
-    private void showUserInfo() {
+    private void showUserProfile() {
         HashMap<String,String> user = session.getUser();
         idUserLogin = user.get(session.Key_ID);
         cursor = db.rawQuery("SELECT * FROM user WHERE ID=?",new String[]{idUserLogin});

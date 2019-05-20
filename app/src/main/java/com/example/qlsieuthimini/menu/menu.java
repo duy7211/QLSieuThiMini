@@ -9,12 +9,11 @@ import android.widget.ImageView;
 import com.example.qlsieuthimini.R;
 import com.example.qlsieuthimini.Sanpham.allSanPham;
 import com.example.qlsieuthimini.session.Session;
-import com.example.qlsieuthimini.user.IU_user;
-import com.example.qlsieuthimini.user.info;
+import com.example.qlsieuthimini.user.profile;
 import com.example.qlsieuthimini.user.user;
 
 public class menu extends AppCompatActivity{
-    ImageView imgsp, imgnv, imgLogout, imginfo;
+    ImageView imgsp, imgnv, imgLogout, imgprofile, imginfo;
     Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +50,17 @@ public class menu extends AppCompatActivity{
 
             }
         });
+        imgprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(menu.this, profile.class));
+            }
+        });
+
         imginfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(menu.this, info.class));
+                startActivity(new Intent(menu.this,info.class));
             }
         });
     }
@@ -63,6 +69,7 @@ public class menu extends AppCompatActivity{
         imgsp = findViewById(R.id.imgsp);
         imgnv = findViewById(R.id.imguser);
         imgLogout = findViewById(R.id.imgLogout);
+        imgprofile = findViewById(R.id.imgprofile);
         imginfo = findViewById(R.id.imginfo);
     }
 }

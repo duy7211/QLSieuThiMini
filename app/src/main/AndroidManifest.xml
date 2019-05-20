@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.info"></activity>
+        <activity android:name=".nhanvien.menubanhang"></activity>
+        <activity android:name=".menu.info" />
+        <activity android:name=".user.profile" />
         <activity
             android:name=".user.IU_user"
             android:label="Cập nhật và Thêm nhân viên"
@@ -29,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IUDActivity"
+            android:name=".Sanpham.IUsanpham"
             android:label="Thêm Sửa sản phẩm"
             android:screenOrientation="portrait" />
         <activity
@@ -37,7 +39,7 @@
             android:label="Tất cả sản phẩm"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".login"
             android:label="Đăng nhập"
             android:screenOrientation="portrait" />
     </application>

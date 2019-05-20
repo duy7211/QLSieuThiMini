@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.example.qlsieuthimini.MainActivity;
-import com.example.qlsieuthimini.menu.menu;
+import com.example.qlsieuthimini.login;
 
 import java.util.HashMap;
 
@@ -39,7 +38,7 @@ public class Session {
 
     public void checkLogin(){
         if(!isLogin()){
-            Intent i = new Intent(context, MainActivity.class);
+            Intent i = new Intent(context, login.class);
             context.startActivity(i);
         }
     }
@@ -47,7 +46,7 @@ public class Session {
     public void logout(){
         editor.clear();
         editor.commit();
-        Intent i = new Intent(context, MainActivity.class);
+        Intent i = new Intent(context, login.class);
         context.startActivity(i);
     }
 

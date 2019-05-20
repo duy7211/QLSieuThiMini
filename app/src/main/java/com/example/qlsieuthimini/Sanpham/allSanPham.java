@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.qlsieuthimini.DatabaseHelper;
-import com.example.qlsieuthimini.IUDActivity;
 import com.example.qlsieuthimini.R;
 
 import java.util.ArrayList;
@@ -69,18 +68,18 @@ public class allSanPham extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(allSanPham.this, IUDActivity.class);
+                Intent i = new Intent(allSanPham.this, IUsanpham.class);
                 i.putExtra("action", "add");
                 startActivity(i);
             }
         });
-        //Lấy ID từ listView gửi qua cho IUDActivity để thực hiện update sp.
+        //Lấy ID từ listView gửi qua cho IUsanpham để thực hiện update sp.
         lvSP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
          @Override
          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
              clsSanpham sp = sanphamList.get(position);
             //Toast.makeText(allSanPham.this,String.valueOf(sp.getID()), Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(allSanPham.this, IUDActivity.class);
+            Intent i = new Intent(allSanPham.this, IUsanpham.class);
             i.putExtra("ID",sp.getID());
             i.putExtra("action","update");
             startActivity(i);

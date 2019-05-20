@@ -44,11 +44,11 @@ public class adapterUser extends BaseAdapter {
 
         TextView tvUsername = convertView.findViewById(R.id.tvUsername);
         TextView tvHoten = convertView.findViewById(R.id.tvvHoten);
-        TextView tvQue = convertView.findViewById(R.id.tvQueofUser);
-        TextView tvNS = convertView.findViewById(R.id.tvQueofUser);
+        TextView tvQue = convertView.findViewById(R.id.tvQue);
+        TextView tvNS = convertView.findViewById(R.id.tvNS);
 
         clsUser user = userList.get(position);
-        tvUsername.setText("Tài khoảng: "+user.getName());
+        tvUsername.setText("Tài khoản: "+user.getName());
         tvHoten.setText("Họ tên: "+user.getHoten());
         tvQue.setText("Quê: "+user.getQue());
         tvNS.setText("Năm Sinh: "+user.getNS());

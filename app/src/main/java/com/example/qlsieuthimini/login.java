@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.qlsieuthimini.menu.menu;
 import com.example.qlsieuthimini.session.Session;
 
-public class MainActivity extends AppCompatActivity {
+public class login extends AppCompatActivity {
     EditText edtUsn, edtPw;
     Button btnLogin;
     DatabaseHelper db;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         db = new DatabaseHelper(this);
         session = new Session(this);
         if(!db.checkUserExists("admin")){
@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
                 if(isExist){
                     int ID = db.getIdUserByname(username);
                     session.createSession(String.valueOf(ID),username);
-                    Intent i = new Intent(MainActivity.this, menu.class);
+                    Intent i = new Intent(login.this, menu.class);
                     i.putExtra("username", username);
                     startActivity(i);
                     finish();
 
                 }else {
                     edtPw.getText().clear();
-                    Toast.makeText(MainActivity.this, "Đăng nhập không thành công. Tài khoảng hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Đăng nhập không thành công. Tài khoảng hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
                 }
             }
         });
