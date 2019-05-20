@@ -7,9 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "QlSieuthi";
+    private static final String DATABASE_NAME = "QlSieuthi.db";
     private  static final String TABLE_USER = "user";
     private  static final String TABLE_SP = "sanpham";
+    private static final String TABLE_GioHang = "giohang";
 
     public static final String user = "CREATE TABLE IF NOT EXISTS "+TABLE_USER+" " +
             "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -28,6 +29,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "HINH BLOB," +
             "GIA VARCHAR(100)" +
             ")";
+    public static final String giohang = "CREATE TABLE IF NOT EXISTS "+TABLE_GioHang+" " +
+            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            "ID_SANPHAM INTEGER, "+
+            "SOLUONG INTEGER, "+
+            "THANHTIEN INTEGER," +
+            "THOIGIAN DATETIME," +
+            "FOREIGN KEY(ID_SANPHAM) REFERENCES sanpham(id)"+
+            ")";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -36,12 +45,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(user);
         db.execSQL(sanpham);
+        db.execSQL(giohang);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_SP);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_GioHang);
+
         onCreate(db);
     }
 

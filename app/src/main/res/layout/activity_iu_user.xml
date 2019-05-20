@@ -6,16 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".user.IU_user">
 
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@android:color/holo_red_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="38dp"
+            android:text="Tài khoản"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
     <EditText
         android:id="@+id/edtUsn"
         android:layout_width="344dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="Tên đăng nhập"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/radioQuyen" />
 
     <EditText
         android:id="@+id/edtPw"
@@ -29,37 +51,29 @@
         app:layout_constraintTop_toBottomOf="@+id/edtUsn" />
 
     <Button
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_light"
         android:id="@+id/btnOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="47dp"
         android:text="Lưu"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnExit"
         app:layout_constraintTop_toBottomOf="@+id/edtNS" />
 
     <Button
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_red_light"
         android:id="@+id/btnExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="47dp"
         android:text="Trở về"
-        app:layout_constraintStart_toEndOf="@+id/btnOK"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNS" />
 
-    <TextView
-        android:textColor="@android:color/holo_blue_dark"
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="38dp"
-        android:text="Tài khoản"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edtHoten"
@@ -76,7 +90,7 @@
         android:id="@+id/edtQue"
         android:layout_width="341dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="21dp"
         android:ems="10"
         android:hint="Quê"
         android:inputType="textPersonName"
@@ -99,10 +113,10 @@
         android:layout_width="271dp"
         android:layout_height="39dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <RadioButton
             android:id="@+id/radioAdmin"

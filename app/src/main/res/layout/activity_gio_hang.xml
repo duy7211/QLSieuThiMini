@@ -29,7 +29,7 @@
         android:id="@+id/tvnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="14dp"
         android:text="1"
         android:textSize="20dp"
@@ -78,14 +78,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:textColor="@color/colorAccent"
         android:id="@+id/tvgiasp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="6dp"
-        android:text="Giá:"
-        app:layout_constraintStart_toEndOf="@+id/imgsanpham"
+        android:text="0"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/tvtensanpham" />
 
     <TextView
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvsoluongkho" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnsell"
         android:layout_width="137dp"
         android:layout_height="37dp"
         android:layout_marginStart="19dp"
@@ -140,5 +140,26 @@
         android:text="Mô tả"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="6dp"
+        android:text="Giá: "
+        app:layout_constraintStart_toEndOf="@+id/imgsanpham"
+        app:layout_constraintTop_toBottomOf="@+id/tvtensanpham" />
+
+    <TextView
+        android:textColor="@color/colorAccent"
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="6dp"
+        android:text="VNĐ"
+        app:layout_constraintStart_toEndOf="@+id/tvgiasp"
+        app:layout_constraintTop_toBottomOf="@+id/tvtensanpham" />
 
 </android.support.constraint.ConstraintLayout>
