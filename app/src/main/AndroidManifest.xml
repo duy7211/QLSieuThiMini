@@ -9,13 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".nhanvien.menubanhang"></activity>
-        <activity android:name=".menu.info"
+        <activity android:name=".nhanvien.Gio_hang"></activity>
+        <activity android:name=".nhanvien.listsanpham" />
+        <activity android:name=".nhanvien.menubanhang" />
+        <activity
+            android:name=".menu.info"
             android:label="Thông tin phần mềm"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".user.profile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".user.profile"
             android:label="Thông tin cá nhân"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".user.IU_user"
             android:label="Cập nhật và Thêm nhân viên"
@@ -27,8 +31,7 @@
         <activity
             android:name=".menu.menu"
             android:label="Quản lý siêu thị mini"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Sanpham.IUsanpham"
             android:label="Thêm Sửa sản phẩm"
@@ -40,7 +43,7 @@
         <activity
             android:name=".login"
             android:label="Quản lý siêu thị mini"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,6 @@
 package com.example.qlsieuthimini.nhanvien;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,13 @@ public class menubanhang extends AppCompatActivity {
             public void onClick(View v) {
                 session.logout();
                 finish();
+            }
+        });
+
+        imgsanpham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(menubanhang.this,listsanpham.class));
             }
         });
     }
