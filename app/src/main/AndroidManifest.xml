@@ -10,8 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".nhanvien.menubanhang"></activity>
-        <activity android:name=".menu.info" />
-        <activity android:name=".user.profile" />
+        <activity android:name=".menu.info"
+            android:label="Thông tin phần mềm"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".user.profile"
+            android:label="Thông tin cá nhân"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".user.IU_user"
             android:label="Cập nhật và Thêm nhân viên"
@@ -24,11 +28,6 @@
             android:name=".menu.menu"
             android:label="Quản lý siêu thị mini"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Sanpham.IUsanpham"
@@ -40,8 +39,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".login"
-            android:label="Đăng nhập"
-            android:screenOrientation="portrait" />
+            android:label="Quản lý siêu thị mini"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

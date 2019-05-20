@@ -17,7 +17,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "PASSWORD VARCHAR(100), " +
             "HOTEN VARCHAR(100), " +
             "QUE VARCHAR(100), " +
-            "NAMSINH DATE" +
+            "NAMSINH DATE," +
+            "QUYEN INTEGER NOT NULL" +
             ")";
     public static final String sanpham = "CREATE TABLE IF NOT EXISTS "+TABLE_SP+" " +
             "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -44,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addUser (String userName, String passWord,String Hoten,String Que,String NS){
+    public void addUser (String userName, String passWord,String Hoten,String Que,String NS, int quyen){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("USER", userName);
@@ -52,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("HOTEN",Hoten);
         values.put("QUE",Que);
         values.put("NAMSINH",NS);
+        values.put("QUYEN",quyen);
         long r =  db.insert(TABLE_USER,null,values);
         db.close();
     }
@@ -83,11 +85,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
    public int getIdUserByname(String username){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_USER+" WHERE USER=?",new String[]{username+""});
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_USER+" WHERE USER=?",new String[]{username});
         cursor.moveToFirst();
         int ID = cursor.getInt(0);
         cursor.close();
         db.close();
         return ID;
+    }
+
+    public int getPermissionByUsername(String username){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_USER+" WHERE USER=?",new String[]{username});
+        cursor.moveToFirst();
+        int quyen = cursor.getInt(6);
+        cursor.close();
+        db.close();
+        return quyen;
     }
 }

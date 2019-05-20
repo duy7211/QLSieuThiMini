@@ -7,14 +7,16 @@ public class clsUser {
     private String Hoten;
     private String Que;
     private String NS;
+    private int quyen;
 
-    public clsUser(int ID, String name, String passord, String hoten, String que, String NS) {
+    public clsUser(int ID, String name, String passord, String hoten, String que, String NS, int quyen) {
         this.ID = ID;
         Name = name;
         Passord = passord;
         Hoten = hoten;
         Que = que;
         this.NS = NS;
+        this.quyen = quyen;
     }
 
     public int getID() {
@@ -63,5 +65,13 @@ public class clsUser {
 
     public void setNS(String NS) {
         this.NS = NS;
+    }
+
+    public int getQuyen() {
+        return quyen;
+    }
+
+    public void setQuyen(int quyen) {
+        this.quyen = quyen;
     }
 }

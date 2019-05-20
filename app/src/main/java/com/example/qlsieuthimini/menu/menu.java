@@ -20,10 +20,12 @@ public class menu extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         session = new Session(this);
-        session.checkLogin();
         init();
         act();
+
     }
+
+
 
     private void act() {
        imgsp.setOnClickListener(new View.OnClickListener() {
@@ -45,8 +47,8 @@ public class menu extends AppCompatActivity{
         imgLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 session.logout();
+                finish();
 
             }
         });

@@ -9,7 +9,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.qlsieuthimini.menu.menu;
+import com.example.qlsieuthimini.nhanvien.menubanhang;
 import com.example.qlsieuthimini.session.Session;
+
+import java.util.HashMap;
 
 public class login extends AppCompatActivity {
     EditText edtUsn, edtPw;
@@ -23,10 +26,31 @@ public class login extends AppCompatActivity {
         db = new DatabaseHelper(this);
         session = new Session(this);
         if(!db.checkUserExists("admin")){
-            db.addUser("admin","123456",null,null,null);
+            db.addUser("admin","123456",null,null,null,1);
         }
+        checkLogin();
         init();
         act();
+
+    }
+
+    private void checkLogin() {
+        if(session.isLogin()){
+            HashMap<String,String> user = session.getUser();
+            String permission = user.get(session.Key_PERMISSION);
+            if(permission.equals("1")){
+                Intent i = new Intent(login.this,menu.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+            }
+            if (permission.equals("0")){
+                Intent i = new Intent(login.this, menubanhang.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+            }
+        }
     }
 
     private void act() {
@@ -38,11 +62,15 @@ public class login extends AppCompatActivity {
                 boolean isExist = db.checkUser(username,password);
                 if(isExist){
                     int ID = db.getIdUserByname(username);
-                    session.createSession(String.valueOf(ID),username);
-                    Intent i = new Intent(login.this, menu.class);
-                    i.putExtra("username", username);
-                    startActivity(i);
-                    finish();
+                    int quyen = db.getPermissionByUsername(username);
+                    session.createSession(String.valueOf(ID),username,String.valueOf(quyen));
+                    //Intent i = new Intent(login.this, menu.class);
+                    //i.putExtra("username", username);
+                    checkLogin();
+                    //i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    //startActivity(i);
+                    //finish();
+
 
                 }else {
                     edtPw.getText().clear();

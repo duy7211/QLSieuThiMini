@@ -9,18 +9,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.qlsieuthimini.DatabaseHelper;
 import com.example.qlsieuthimini.R;
 
 public class IU_user extends AppCompatActivity {
+    RadioGroup radioQuyen;
+    RadioButton radioAdmin,radioUser;
     EditText edtUsn, edtPw, edtHoten,edtQue,edtNS;
     Button btnOk, btnExit;
     DatabaseHelper databaseHelper;
     SQLiteDatabase db;
     String action = null;
     int ID;
+    int Quyen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +54,17 @@ public class IU_user extends AppCompatActivity {
                     edtHoten.setText(cursor.getString(3));
                     edtQue.setText(cursor.getString(4));
                     edtNS.setText(cursor.getString(5));
+                    int quyen = cursor.getInt(6);
+                    if(quyen == 1){
+                        radioQuyen.check(R.id.radioAdmin);
+                    } else {
+                        radioQuyen.check(R.id.radioUser);
+                    }
+                    if(quyen == 0){
+                        for(int j = 0; j<radioQuyen.getChildCount();j++){
+                            radioQuyen.getChildAt(j).setEnabled(false);
+                        }
+                    }
                     cursor.close();
                 }
                 break;
@@ -73,7 +89,18 @@ public class IU_user extends AppCompatActivity {
             }
         });
 
+        radioQuyen.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.radioAdmin)
+                    Quyen = 1;
+                if(checkedId == R.id.radioUser)
+                    Quyen = 0;
+            }
+        });
+
     }
+
 
     private void saveData() {
 
@@ -88,6 +115,7 @@ public class IU_user extends AppCompatActivity {
         values.put("HOTEN",hoten);
         values.put("QUE",que);
         values.put("NAMSINH",ns);
+        values.put("QUYEN",Quyen);
         switch (action){
             case "add":
                 if(userName.isEmpty() || passWord.isEmpty()){
@@ -98,7 +126,7 @@ public class IU_user extends AppCompatActivity {
                         Toast.makeText(IU_user.this, "Tài khoảng tồn tại", Toast.LENGTH_SHORT).show();
                     } else {
                         if(passWord.length() >= 6) {
-                            databaseHelper.addUser(userName, passWord,hoten,que,ns);
+                            databaseHelper.addUser(userName, passWord,hoten,que,ns,Quyen);
                             Toast.makeText(IU_user.this, "Tạo tài khoảng thành công", Toast.LENGTH_SHORT).show();
                             finish();
                         } else{
@@ -129,5 +157,9 @@ public class IU_user extends AppCompatActivity {
         edtHoten = findViewById(R.id.edtHoten);
         edtNS = findViewById(R.id.edtNS);
         edtQue = findViewById(R.id.edtQue);
+        radioQuyen = findViewById(R.id.radioQuyen);
+        radioAdmin = findViewById(R.id.radioAdmin);
+        radioUser = findViewById(R.id.radioUser);
+
     }
 }
