@@ -4,8 +4,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/stellicon"
-        android:label="@string/app_name"
+        android:icon="@drawable/unnamed"
+        android:label="Quản lý siêu thị mini"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

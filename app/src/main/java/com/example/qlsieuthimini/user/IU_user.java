@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.example.qlsieuthimini.DatabaseHelper;
 import com.example.qlsieuthimini.R;
+import com.example.qlsieuthimini.session.Session;
+
+import java.util.HashMap;
 
 public class IU_user extends AppCompatActivity {
     RadioGroup radioQuyen;
@@ -26,16 +29,28 @@ public class IU_user extends AppCompatActivity {
     String action = null;
     int ID;
     int Quyen;
+    Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iu_user);
         databaseHelper = new DatabaseHelper(this);
         db = databaseHelper.getWritableDatabase();
-
+        session = new Session(this);
         init();
         getReqAndData();
         act();
+        checkuserPermission();
+    }
+
+    private void checkuserPermission() {
+        HashMap<String,String> user = session.getUser();
+        String userpermission = user.get(session.Key_PERMISSION);
+        if(userpermission.equals("0")){
+            for(int j = 0; j<radioQuyen.getChildCount();j++){
+                radioQuyen.getChildAt(j).setEnabled(false);
+            }
+        }
     }
 
     private void getReqAndData() {
@@ -54,16 +69,11 @@ public class IU_user extends AppCompatActivity {
                     edtHoten.setText(cursor.getString(3));
                     edtQue.setText(cursor.getString(4));
                     edtNS.setText(cursor.getString(5));
-                    int quyen = cursor.getInt(6);
-                    if(quyen == 1){
+                    Quyen = cursor.getInt(6);
+                    if(Quyen == 1){
                         radioQuyen.check(R.id.radioAdmin);
                     } else {
                         radioQuyen.check(R.id.radioUser);
-                    }
-                    if(quyen == 0){
-                        for(int j = 0; j<radioQuyen.getChildCount();j++){
-                            radioQuyen.getChildAt(j).setEnabled(false);
-                        }
                     }
                     cursor.close();
                 }
