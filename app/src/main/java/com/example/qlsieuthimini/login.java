@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.qlsieuthimini.menu.menu;
-import com.example.qlsieuthimini.nhanvien.menubanhang;
+import com.example.qlsieuthimini.banhang.menubanhang;
 import com.example.qlsieuthimini.session.Session;
 
 import java.util.HashMap;

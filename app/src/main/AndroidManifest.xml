@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".nhanvien.Gio_hang"></activity>
-        <activity android:name=".nhanvien.listsanpham" />
-        <activity android:name=".nhanvien.menubanhang" />
+        <activity android:name=".thanhtien.sale_history"></activity>
+        <activity android:name=".banhang.Gio_hang" />
+        <activity android:name=".banhang.listsanpham" />
+        <activity android:name=".banhang.menubanhang" />
         <activity
             android:name=".menu.info"
             android:label="Thông tin phần mềm"

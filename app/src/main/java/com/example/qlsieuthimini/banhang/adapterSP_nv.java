@@ -1,4 +1,4 @@
-package com.example.qlsieuthimini.nhanvien;
+package com.example.qlsieuthimini.banhang;
 
 import android.content.Context;
 import android.view.LayoutInflater;

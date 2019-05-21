@@ -1,4 +1,4 @@
-package com.example.qlsieuthimini.nhanvien;
+package com.example.qlsieuthimini.banhang;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,7 +11,6 @@ import android.widget.ListView;
 
 import com.example.qlsieuthimini.DatabaseHelper;
 import com.example.qlsieuthimini.R;
-import com.example.qlsieuthimini.Sanpham.adapterSP;
 import com.example.qlsieuthimini.Sanpham.clsSanpham;
 
 import java.util.ArrayList;

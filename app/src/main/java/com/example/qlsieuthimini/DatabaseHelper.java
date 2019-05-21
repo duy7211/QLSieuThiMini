@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "SOLUONG INTEGER, "+
             "THANHTIEN INTEGER," +
             "THOIGIAN DATETIME," +
-            "FOREIGN KEY(ID_SANPHAM) REFERENCES sanpham(id)"+
+            "FOREIGN KEY(ID_SANPHAM) REFERENCES sanpham(ID)"+
             ")";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -53,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_SP);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_GioHang);
+        db.execSQL("PRAGMA foreign_keys=on;");
 
         onCreate(db);
     }
