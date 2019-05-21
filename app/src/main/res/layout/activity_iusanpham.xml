@@ -90,7 +90,7 @@
         android:layout_marginTop="9dp"
         android:ems="10"
         android:hint="Giá"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtSoluong" />
 

@@ -9,10 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".thanhtien.sale_history"></activity>
-        <activity android:name=".banhang.Gio_hang" />
-        <activity android:name=".banhang.listsanpham" />
-        <activity android:name=".banhang.menubanhang" />
+        <activity android:name=".menu.Total"
+            android:label="Doanh số"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".thanhtien.sale_history"
+            android:label="Lịch sử bán hàng"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".banhang.Gio_hang"
+            android:label="Giỏ hàng"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".banhang.listsanpham"
+            android:label="Danh sách sản phẩm"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".banhang.menubanhang"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".menu.info"
             android:label="Thông tin phần mềm"

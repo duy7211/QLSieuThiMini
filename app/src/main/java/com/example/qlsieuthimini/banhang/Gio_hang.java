@@ -33,6 +33,7 @@ public class Gio_hang extends AppCompatActivity {
     String slSanpham;
     String gia;
     int TongGia;
+    String sl_spMua;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +50,11 @@ public class Gio_hang extends AppCompatActivity {
         btnsell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sl_spMua = tvNumber.getText().toString();
+                sl_spMua = tvNumber.getText().toString();
                 String gia = tvGiasp.getText().toString();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 String datetime = sdf.format(new Date());
-
+                UpdateSL_sp();
                 ContentValues values = new ContentValues();
                 values.put("ID_SANPHAM",ID);
                 values.put("SOLUONG",sl_spMua);
@@ -68,6 +69,14 @@ public class Gio_hang extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    private void UpdateSL_sp() {
+        int sl_conlai = Integer.valueOf(slSanpham) - Integer.valueOf(sl_spMua);
+        ContentValues values = new ContentValues();
+        values.put("SL",String.valueOf(sl_conlai));
+        db.update("sanpham",values,"ID="+ID,null);
 
     }
 
@@ -97,7 +106,7 @@ public class Gio_hang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(number < Integer.valueOf(slSanpham)){
-                    ++number;
+                    number+=1;
                     tvNumber.setText(String.valueOf(number));
                     String soluong = tvNumber.getText().toString();
 
@@ -106,6 +115,8 @@ public class Gio_hang extends AppCompatActivity {
                         TongGia = Integer.valueOf(gia) * Integer.valueOf(soluong);
                         tvGiasp.setText(String.valueOf(TongGia));
                     }
+
+
 
                 }
             }
@@ -115,7 +126,7 @@ public class Gio_hang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(number > 1 ){
-                    --number;
+                    number-=1;
                     tvNumber.setText(String.valueOf(number));
                     String soluong = tvNumber.getText().toString();
 
@@ -127,15 +138,11 @@ public class Gio_hang extends AppCompatActivity {
 
 
                 }
-            }
-        });
-
-        btnsell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
             }
         });
+
+
 
     }
 

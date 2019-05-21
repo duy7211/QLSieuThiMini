@@ -9,7 +9,7 @@
     <ListView
         android:id="@+id/lvsanpham"
         android:layout_width="349dp"
-        android:layout_height="704dp"
+        android:layout_height="522dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -13,7 +13,7 @@ import com.example.qlsieuthimini.user.profile;
 import com.example.qlsieuthimini.user.user;
 
 public class menu extends AppCompatActivity{
-    ImageView imgsp, imgnv, imgLogout, imgprofile, imginfo;
+    ImageView imgsp, imgnv, imgLogout, imgprofile, imginfo, imgTotal;
     Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,13 @@ public class menu extends AppCompatActivity{
                 startActivity(new Intent(menu.this,info.class));
             }
         });
+
+        imgTotal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(menu.this,Total.class));
+            }
+        });
     }
 
     private void init() {
@@ -73,5 +80,6 @@ public class menu extends AppCompatActivity{
         imgLogout = findViewById(R.id.imgLogout);
         imgprofile = findViewById(R.id.imgprofile);
         imginfo = findViewById(R.id.imginfo);
+        imgTotal = findViewById(R.id.imgTotal);
     }
 }

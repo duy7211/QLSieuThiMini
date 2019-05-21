@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.qlsieuthimini.DatabaseHelper;
 import com.example.qlsieuthimini.R;
@@ -62,9 +63,13 @@ public class listsanpham extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 clsSanpham sp = sanphamList.get(position);
-                Intent i = new Intent(listsanpham.this,Gio_hang.class);
-                i.putExtra("ID",sp.getID());
-                startActivity(i);
+                if (sp.getAmount().equals("0")){
+                    Toast.makeText(listsanpham.this, "Đã hết hàng", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent i = new Intent(listsanpham.this, Gio_hang.class);
+                    i.putExtra("ID", sp.getID());
+                    startActivity(i);
+                }
             }
         });
 
